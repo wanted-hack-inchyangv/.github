@@ -25,12 +25,15 @@
 
 ```mermaid
 flowchart TD
-    A["입력<br/>이력서 PDF · GitHub 프로필 · 과제 저장소"] --> B["저장소 수집 · 고정 SHA"]
-    B --> C["격리 실행 · 하네스 판정"]
-    C --> D["테스트 실효성<br/>(mutation)"]
-    D --> E["리뷰 작성"]
-    E --> F["맥락 연결"]
-    F --> G["사람의 검토"]
+    subgraph s1["채점"]
+        direction LR
+        A["입력"] --> B["저장소 수집 · 고정 SHA"] --> C["격리 실행 · 하네스 판정"] --> D["테스트 실효성"]
+    end
+    subgraph s2["채점 이후"]
+        direction LR
+        E["리뷰 작성"] --> F["맥락 연결"] --> G["사람의 검토"]
+    end
+    s1 --> s2
 ```
 
 ---
@@ -39,11 +42,11 @@ flowchart TD
 
 아래 페르소나는 ohmyti를 시험하기 위해 제작한 가상 인물이며, 실존하는 인물·회사와 관련이 없습니다. 세 명 모두 같은 채용 과제인 주문·재고 API([SPEC.md](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/order-api/SPEC.md))를 제출했고, 수준에 따라 서로 다른 결함이 설계되어 있습니다.
 
-| 페르소나 | 수준 | 과제 제출물 | 포트폴리오 저장소 | 설계된 채점 결과 |
-| --- | --- | --- | --- | --- |
-| 한서진 (`seojin`) | 7년차 시니어 백엔드 | [`order-api-seojin`](https://github.com/wanted-hack-inchyangv/order-api-seojin)<br><sub>Node.js 내장 http, 키별 직렬화 큐</sub> | [`seojin-stock-reservation`](https://github.com/wanted-hack-inchyangv/seojin-stock-reservation)<br><sub>재고 선점 서비스, 낙관적 잠금</sub><br>`seojin-idempotency-kit`<br><sub>멱등성 키 미들웨어 (공개 예정)</sub> | 실행 기준 R-01 ~ R-10 전부 통과 |
-| 오태윤 (`taeyun`) | 3년차 주니어 백엔드 | [`order-api-taeyun`](https://github.com/wanted-hack-inchyangv/order-api-taeyun)<br><sub>Express + zod</sub> | [`taeyun-room-booking`](https://github.com/wanted-hack-inchyangv/taeyun-room-booking)<br><sub>회의실 예약 API</sub><br>[`taeyun-til-cli`](https://github.com/wanted-hack-inchyangv/taeyun-til-cli)<br><sub>TIL 마크다운 CLI</sub> | R-06(멱등 키 충돌), R-07(같은 키 동시 요청) 실패 |
-| 문가은 (`gaeun`) | 신입, 부트캠프 수료 | [`order-api-gaeun`](https://github.com/wanted-hack-inchyangv/order-api-gaeun)<br><sub>Express</sub> | [`gaeun-todo-react`](https://github.com/wanted-hack-inchyangv/gaeun-todo-react)<br><sub>React 할 일 앱</sub><br>[`gaeun-bookmark-api`](https://github.com/wanted-hack-inchyangv/gaeun-bookmark-api)<br><sub>북마크 CRUD API</sub> | R-04(입력 검증), R-05 ~ R-07(멱등성 전체), R-09(취소 시 재고 복구) 실패 |
+| 페르소나 | 저장소 | 설계된 채점 결과 |
+| --- | --- | --- |
+| **한서진** (`seojin`)<br><sub>7년차 시니어 백엔드</sub> | [`order-api-seojin`](https://github.com/wanted-hack-inchyangv/order-api-seojin)<br><sub>과제 제출물 · Node.js 내장 http, 키별 직렬화 큐</sub><br>[`seojin-stock-reservation`](https://github.com/wanted-hack-inchyangv/seojin-stock-reservation)<br><sub>포트폴리오 · 재고 선점 서비스, 낙관적 잠금</sub><br>`seojin-idempotency-kit`<br><sub>포트폴리오 · 멱등성 키 미들웨어 (공개 예정)</sub> | R-01 ~ R-10 전부 통과<br><sub>실행 기준 전 항목 PASS</sub> |
+| **오태윤** (`taeyun`)<br><sub>3년차 주니어 백엔드</sub> | [`order-api-taeyun`](https://github.com/wanted-hack-inchyangv/order-api-taeyun)<br><sub>과제 제출물 · Express + zod</sub><br>[`taeyun-room-booking`](https://github.com/wanted-hack-inchyangv/taeyun-room-booking)<br><sub>포트폴리오 · 회의실 예약 API</sub><br>[`taeyun-til-cli`](https://github.com/wanted-hack-inchyangv/taeyun-til-cli)<br><sub>포트폴리오 · TIL 마크다운 CLI</sub> | R-06, R-07 실패<br><sub>멱등 키 충돌 · 같은 키 동시 요청</sub> |
+| **문가은** (`gaeun`)<br><sub>신입, 부트캠프 수료</sub> | [`order-api-gaeun`](https://github.com/wanted-hack-inchyangv/order-api-gaeun)<br><sub>과제 제출물 · Express</sub><br>[`gaeun-todo-react`](https://github.com/wanted-hack-inchyangv/gaeun-todo-react)<br><sub>포트폴리오 · React 할 일 앱</sub><br>[`gaeun-bookmark-api`](https://github.com/wanted-hack-inchyangv/gaeun-bookmark-api)<br><sub>포트폴리오 · 북마크 CRUD API</sub> | R-04, R-05 ~ R-07, R-09 실패<br><sub>입력 검증 · 멱등성 전체 · 취소 시 재고 복구</sub> |
 
 세 페르소나의 GitHub 프로필 URL은 모두 이 조직([wanted-hack-inchyangv](https://github.com/wanted-hack-inchyangv))을 가리킵니다.
 
