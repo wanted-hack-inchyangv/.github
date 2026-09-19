@@ -1,19 +1,29 @@
 <div align="center">
 
-# ohmyti · CodeGraph Reviewer
+<img src="https://raw.githubusercontent.com/wanted-hack-inchyangv/ohmyti/main/apps/web/public/codegraph-mark.svg" width="64" alt="CodeGraph Reviewer 로고" />
 
-채용 코딩 과제 제출물을 격리 환경에서 실제로 실행해 요구사항을 판정하고, 감점된 실패를 재생하며, 코드 근거를 보여주는 채점 워크벤치입니다.
+# CodeGraph Reviewer
 
-[서비스 바로가기](https://ohmyti.vercel.app) · [ohmyti 저장소](https://github.com/wanted-hack-inchyangv/ohmyti)
+**테스트가 통과했다고 요구사항을 지킨 건 아닙니다.**
 
-[![Live Demo](https://img.shields.io/badge/demo-ohmyti.vercel.app-1a73e8?style=flat-square)](https://ohmyti.vercel.app)
+채용 과제 저장소를 격리된 환경에서 실제로 실행해 요구사항마다 통과·실패를 판정하고,<br />
+모든 감점에 재현 기록과 코드 위치를 붙이는 채점 워크벤치입니다. 원티드 해커톤 제출작입니다.
+
+[서비스 바로가기](https://ohmyti.vercel.app) · [샘플 체험](https://ohmyti.vercel.app/demo) · [소스 코드](https://github.com/wanted-hack-inchyangv/ohmyti)
+
+[![Live](https://img.shields.io/badge/live-ohmyti.vercel.app-0066FF?style=flat-square)](https://ohmyti.vercel.app)
+[![Source](https://img.shields.io/badge/source-ohmyti-171719?style=flat-square&logo=github)](https://github.com/wanted-hack-inchyangv/ohmyti)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://github.com/wanted-hack-inchyangv/ohmyti)
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)](https://github.com/wanted-hack-inchyangv/ohmyti)
-[![Node.js 22+](https://img.shields.io/badge/Node.js-22%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://github.com/wanted-hack-inchyangv/ohmyti)
 
 </div>
 
 ---
+
+## 이 조직에는 무엇이 있나요
+
+- [`ohmyti`](https://github.com/wanted-hack-inchyangv/ohmyti): CodeGraph Reviewer의 소스 코드입니다. 제품 설명, 화면, 아키텍처, 실행 방법은 이 저장소의 README에 있습니다.
+- `<핸들>-*` 저장소: 채점을 시험하려고 만든 가상 지원자들의 과제 제출물과 포트폴리오입니다. 아래 [테스트 페르소나](#테스트-페르소나)에서 설명합니다.
 
 ## ohmyti는 무엇을 하나요
 
@@ -22,6 +32,8 @@
 - 감점된 항목은 재현 입력, 요청·응답 타임라인, 코드 위치까지 그대로 재생합니다.
 - 제출 테스트가 실제 결함을 잡아내는지 mutation(결함 주입)으로 따로 검증합니다.
 - 채점과는 분리된 단계에서 이력서의 주장과 GitHub 공개 저장소의 근거를 연결하고 후속 질문을 제안합니다. 이력서가 달라져도 과제 채점 결과는 바뀌지 않습니다.
+
+![채점 워크벤치](https://raw.githubusercontent.com/wanted-hack-inchyangv/ohmyti/main/docs/readme/03-workbench-r05.png)
 
 ```mermaid
 flowchart TD
@@ -42,11 +54,11 @@ flowchart TD
 
 아래 페르소나는 ohmyti를 시험하기 위해 제작한 가상 인물이며, 실존하는 인물·회사와 관련이 없습니다. 세 명 모두 같은 채용 과제인 주문·재고 API([SPEC.md](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/order-api/SPEC.md))를 제출했고, 수준에 따라 서로 다른 결함이 설계되어 있습니다.
 
-| 페르소나 | 저장소 | 설계된 채점 결과 |
-| --- | --- | --- |
-| [**한서진**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/seojin/persona.md) (`seojin`)<br><sub>7년차 시니어 백엔드</sub> | [`seojin-order-api`](https://github.com/wanted-hack-inchyangv/seojin-order-api)<br><sub>과제 제출물 · Node.js 내장 http, 키별 직렬화 큐</sub><br>[`seojin-stock-reservation`](https://github.com/wanted-hack-inchyangv/seojin-stock-reservation)<br><sub>포트폴리오 · 재고 선점 서비스, 낙관적 잠금</sub><br>[`seojin-idempotency-kit`](https://github.com/wanted-hack-inchyangv/seojin-idempotency-kit)<br><sub>포트폴리오 · 멱등성 키 미들웨어</sub> | R-01 ~ R-10 전부 통과<br><sub>실행 기준 전 항목 PASS</sub> |
-| [**오태윤**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/taeyun/persona.md) (`taeyun`)<br><sub>3년차 주니어 백엔드</sub> | [`taeyun-order-api`](https://github.com/wanted-hack-inchyangv/taeyun-order-api)<br><sub>과제 제출물 · Express + zod</sub><br>[`taeyun-room-booking`](https://github.com/wanted-hack-inchyangv/taeyun-room-booking)<br><sub>포트폴리오 · 회의실 예약 API</sub><br>[`taeyun-til-cli`](https://github.com/wanted-hack-inchyangv/taeyun-til-cli)<br><sub>포트폴리오 · TIL 마크다운 CLI</sub> | R-06, R-07 실패<br><sub>멱등 키 충돌 · 같은 키 동시 요청</sub> |
-| [**문가은**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/gaeun/persona.md) (`gaeun`)<br><sub>신입, 부트캠프 수료</sub> | [`gaeun-order-api`](https://github.com/wanted-hack-inchyangv/gaeun-order-api)<br><sub>과제 제출물 · Express</sub><br>[`gaeun-todo-react`](https://github.com/wanted-hack-inchyangv/gaeun-todo-react)<br><sub>포트폴리오 · React 할 일 앱</sub><br>[`gaeun-bookmark-api`](https://github.com/wanted-hack-inchyangv/gaeun-bookmark-api)<br><sub>포트폴리오 · 북마크 CRUD API</sub> | R-04, R-05 ~ R-07, R-09 실패<br><sub>입력 검증 · 멱등성 전체 · 취소 시 재고 복구</sub> |
+| 페르소나 | 저장소 | 설계된 채점 결과 | 실제 채점 결과 |
+| --- | --- | --- | --- |
+| [**한서진**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/seojin/persona.md) (`seojin`)<br><sub>7년차 시니어 백엔드</sub> | [`seojin-order-api`](https://github.com/wanted-hack-inchyangv/seojin-order-api)<br><sub>과제 제출물 · Node.js 내장 http, 키별 직렬화 큐</sub><br>[`seojin-stock-reservation`](https://github.com/wanted-hack-inchyangv/seojin-stock-reservation)<br><sub>포트폴리오 · 재고 선점 서비스, 낙관적 잠금</sub><br>[`seojin-idempotency-kit`](https://github.com/wanted-hack-inchyangv/seojin-idempotency-kit)<br><sub>포트폴리오 · 멱등성 키 미들웨어</sub> | R-01 ~ R-10 전부 통과<br><sub>실행 기준 전 항목 PASS</sub> | [90~100/100](https://ohmyti.vercel.app/evaluations/8b63e0f3-3913-4a10-9f64-23d57d3fd769)<br><sub>워크벤치에서 열기</sub> |
+| [**오태윤**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/taeyun/persona.md) (`taeyun`)<br><sub>3년차 주니어 백엔드</sub> | [`taeyun-order-api`](https://github.com/wanted-hack-inchyangv/taeyun-order-api)<br><sub>과제 제출물 · Express + zod</sub><br>[`taeyun-room-booking`](https://github.com/wanted-hack-inchyangv/taeyun-room-booking)<br><sub>포트폴리오 · 회의실 예약 API</sub><br>[`taeyun-til-cli`](https://github.com/wanted-hack-inchyangv/taeyun-til-cli)<br><sub>포트폴리오 · TIL 마크다운 CLI</sub> | R-06, R-07 실패<br><sub>멱등 키 충돌 · 같은 키 동시 요청</sub> | [78~88/100](https://ohmyti.vercel.app/evaluations/e2611352-232d-47cd-aebe-a4617aa3afe8)<br><sub>워크벤치에서 열기</sub> |
+| [**문가은**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/gaeun/persona.md) (`gaeun`)<br><sub>신입, 부트캠프 수료</sub> | [`gaeun-order-api`](https://github.com/wanted-hack-inchyangv/gaeun-order-api)<br><sub>과제 제출물 · Express</sub><br>[`gaeun-todo-react`](https://github.com/wanted-hack-inchyangv/gaeun-todo-react)<br><sub>포트폴리오 · React 할 일 앱</sub><br>[`gaeun-bookmark-api`](https://github.com/wanted-hack-inchyangv/gaeun-bookmark-api)<br><sub>포트폴리오 · 북마크 CRUD API</sub> | R-04, R-05 ~ R-07, R-09 실패<br><sub>입력 검증 · 멱등성 전체 · 취소 시 재고 복구</sub> | [37~57/100](https://ohmyti.vercel.app/evaluations/ce678955-90ce-4287-8e84-41787deb0cfe)<br><sub>워크벤치에서 열기</sub> |
 
 세 페르소나의 GitHub 프로필 URL은 모두 이 조직([wanted-hack-inchyangv](https://github.com/wanted-hack-inchyangv))을 가리킵니다. 페르소나별 이력서 PDF와 설명 문서는 [samples/personas](https://github.com/wanted-hack-inchyangv/ohmyti/tree/main/samples/personas)에 있습니다.
 
