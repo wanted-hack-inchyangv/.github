@@ -44,19 +44,20 @@ flowchart TD
 
 | 페르소나 | 저장소 | 설계된 채점 결과 |
 | --- | --- | --- |
-| **한서진** (`seojin`)<br><sub>7년차 시니어 백엔드</sub> | [`order-api-seojin`](https://github.com/wanted-hack-inchyangv/order-api-seojin)<br><sub>과제 제출물 · Node.js 내장 http, 키별 직렬화 큐</sub><br>[`seojin-stock-reservation`](https://github.com/wanted-hack-inchyangv/seojin-stock-reservation)<br><sub>포트폴리오 · 재고 선점 서비스, 낙관적 잠금</sub><br>[`seojin-idempotency-kit`](https://github.com/wanted-hack-inchyangv/seojin-idempotency-kit)<br><sub>포트폴리오 · 멱등성 키 미들웨어</sub> | R-01 ~ R-10 전부 통과<br><sub>실행 기준 전 항목 PASS</sub> |
-| **오태윤** (`taeyun`)<br><sub>3년차 주니어 백엔드</sub> | [`order-api-taeyun`](https://github.com/wanted-hack-inchyangv/order-api-taeyun)<br><sub>과제 제출물 · Express + zod</sub><br>[`taeyun-room-booking`](https://github.com/wanted-hack-inchyangv/taeyun-room-booking)<br><sub>포트폴리오 · 회의실 예약 API</sub><br>[`taeyun-til-cli`](https://github.com/wanted-hack-inchyangv/taeyun-til-cli)<br><sub>포트폴리오 · TIL 마크다운 CLI</sub> | R-06, R-07 실패<br><sub>멱등 키 충돌 · 같은 키 동시 요청</sub> |
-| **문가은** (`gaeun`)<br><sub>신입, 부트캠프 수료</sub> | [`order-api-gaeun`](https://github.com/wanted-hack-inchyangv/order-api-gaeun)<br><sub>과제 제출물 · Express</sub><br>[`gaeun-todo-react`](https://github.com/wanted-hack-inchyangv/gaeun-todo-react)<br><sub>포트폴리오 · React 할 일 앱</sub><br>[`gaeun-bookmark-api`](https://github.com/wanted-hack-inchyangv/gaeun-bookmark-api)<br><sub>포트폴리오 · 북마크 CRUD API</sub> | R-04, R-05 ~ R-07, R-09 실패<br><sub>입력 검증 · 멱등성 전체 · 취소 시 재고 복구</sub> |
+| [**한서진**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/seojin/persona.md) (`seojin`)<br><sub>7년차 시니어 백엔드</sub> | [`seojin-order-api`](https://github.com/wanted-hack-inchyangv/seojin-order-api)<br><sub>과제 제출물 · Node.js 내장 http, 키별 직렬화 큐</sub><br>[`seojin-stock-reservation`](https://github.com/wanted-hack-inchyangv/seojin-stock-reservation)<br><sub>포트폴리오 · 재고 선점 서비스, 낙관적 잠금</sub><br>[`seojin-idempotency-kit`](https://github.com/wanted-hack-inchyangv/seojin-idempotency-kit)<br><sub>포트폴리오 · 멱등성 키 미들웨어</sub> | R-01 ~ R-10 전부 통과<br><sub>실행 기준 전 항목 PASS</sub> |
+| [**오태윤**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/taeyun/persona.md) (`taeyun`)<br><sub>3년차 주니어 백엔드</sub> | [`taeyun-order-api`](https://github.com/wanted-hack-inchyangv/taeyun-order-api)<br><sub>과제 제출물 · Express + zod</sub><br>[`taeyun-room-booking`](https://github.com/wanted-hack-inchyangv/taeyun-room-booking)<br><sub>포트폴리오 · 회의실 예약 API</sub><br>[`taeyun-til-cli`](https://github.com/wanted-hack-inchyangv/taeyun-til-cli)<br><sub>포트폴리오 · TIL 마크다운 CLI</sub> | R-06, R-07 실패<br><sub>멱등 키 충돌 · 같은 키 동시 요청</sub> |
+| [**문가은**](https://github.com/wanted-hack-inchyangv/ohmyti/blob/main/samples/personas/gaeun/persona.md) (`gaeun`)<br><sub>신입, 부트캠프 수료</sub> | [`gaeun-order-api`](https://github.com/wanted-hack-inchyangv/gaeun-order-api)<br><sub>과제 제출물 · Express</sub><br>[`gaeun-todo-react`](https://github.com/wanted-hack-inchyangv/gaeun-todo-react)<br><sub>포트폴리오 · React 할 일 앱</sub><br>[`gaeun-bookmark-api`](https://github.com/wanted-hack-inchyangv/gaeun-bookmark-api)<br><sub>포트폴리오 · 북마크 CRUD API</sub> | R-04, R-05 ~ R-07, R-09 실패<br><sub>입력 검증 · 멱등성 전체 · 취소 시 재고 복구</sub> |
 
-세 페르소나의 GitHub 프로필 URL은 모두 이 조직([wanted-hack-inchyangv](https://github.com/wanted-hack-inchyangv))을 가리킵니다.
+세 페르소나의 GitHub 프로필 URL은 모두 이 조직([wanted-hack-inchyangv](https://github.com/wanted-hack-inchyangv))을 가리킵니다. 페르소나별 이력서 PDF와 설명 문서는 [samples/personas](https://github.com/wanted-hack-inchyangv/ohmyti/tree/main/samples/personas)에 있습니다.
 
 ---
 
 ## 직접 실행해 보는 방법
 
 1. [ohmyti.vercel.app/submissions/new](https://ohmyti.vercel.app/submissions/new)에 접속합니다.
-2. 채점할 과제 저장소의 GitHub URL과 지원자의 GitHub 프로필 URL을 입력합니다. 위 표의 저장소로 바로 시험해 볼 수 있습니다.
-3. 분석 및 채점을 실행하면 요구사항별 판정과 실패 재생, 코드 근거를 워크벤치에서 확인할 수 있습니다.
+2. 이력서 PDF를 업로드합니다. 페르소나별 이력서는 `samples/personas/<핸들>/resume.pdf`이며, 입력값 전체는 같은 디렉터리의 `persona.md` "입력값" 표에 정리되어 있습니다.
+3. 채점할 과제 저장소의 GitHub URL과 지원자의 GitHub 프로필 URL을 입력합니다. 위 표의 저장소로 바로 시험해 볼 수 있습니다.
+4. 분석 및 채점을 실행하면 요구사항별 판정과 실패 재생, 코드 근거를 워크벤치에서 확인할 수 있습니다.
 
 ---
 
